@@ -1,0 +1,44 @@
+/* Custom styles to complement Tailwind CSS */
+:root {
+    --primary-color: #111827;
+    --secondary-color: #2563eb;
+    --accent-color: #f59e0b;
+}
+
+/* Ensure images in product cards don't overflow */
+.product-image-container {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.product-image-container img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image-container img {
+    transform: scale(1.05);
+}
+
+/* Hide scrollbar for horizontal scrolling lists */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Safe area padding for mobile bottom nav on iOS devices */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom);
+        height: calc(4rem + env(safe-area-inset-bottom));
+    }
+}
